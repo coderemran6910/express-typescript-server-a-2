@@ -1,5 +1,5 @@
 export type  TVariant = {
-    type: [string];
+    type: string;
     value: string;
 }
 

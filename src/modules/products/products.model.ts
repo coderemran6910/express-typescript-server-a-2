@@ -12,16 +12,7 @@ const variantSchema = new Schema<TVariant>({
     }
 });
 
-const inventorySchema = new Schema<TInventory>({
-    quantity: {
-        type: Number,
-        required: true
-    },
-    inStock: {
-        type: Boolean,
-        required: true
-    }
-});
+
 
 const productSchema = new Schema<TProduct>({
     name: {
@@ -44,13 +35,10 @@ const productSchema = new Schema<TProduct>({
         type: [String],
         required: true
     },
-    variants: {
-        type: [variantSchema],
-        required: true
-    },
+    variants: [variantSchema],
     inventory: {
-        type: inventorySchema,
-        required: true
+        quantity :{type: Number, required: true},
+        inStock : {type: Boolean, required: true }
     }
 });
 
