@@ -10,7 +10,7 @@ router.post('/', productController.createProductController)
 router.get('/', productController.getProductController)
 router.get('/:productId', productController.getSingleProductController)
 router.put('/:productId', productController.updateProductInfo)
-// router.delete('/:productId', productController)
+router.delete('/:productId', productController.deleteProduct)
 // router.get('/:productId', productController)  ///end point: api/products?searchTerm=iphone [Search]
 
 

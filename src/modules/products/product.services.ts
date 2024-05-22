@@ -51,8 +51,6 @@ const deleteProduct = async(productId: string)=>{
 }
 
 
-const 
-
 
 export const productServices = {
     createProduct,

@@ -68,9 +68,30 @@ const getSingleProductController = async(req: Request, res:Response )=>{
 
 
 
+  const deleteProduct = async (req: Request, res: Response) => {
+    try {
+      const productId = req.params.productId;
+  
+      const deletedProduct = await productServices.deleteProduct(productId);
+  
+      res.status(200).json({
+        success: true,
+        message: "Product deleted successfully!",
+        data: null
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, message: "Error deleting product" });
+    }
+  }
+
+
+
+
  export const productController = {
     createProductController,
     getProductController,
     getSingleProductController,
     updateProductInfo,
+    deleteProduct
  }
