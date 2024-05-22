@@ -21,8 +21,43 @@ const  getSingleProduct = async(productId: string)=>{
 
 }
 
+const updateProduct = async (productId: string, productData: any) => {
+    try {
+        // Ensure the ID is valid if using a database like MongoDB
+        const updatedProduct = await Product.findByIdAndUpdate(
+            productId,
+            { $set: productData },
+            { new: true, runValidators: true }
+        );
+
+        return updatedProduct;
+    } catch (error) {
+        console.error('Error in updateProduct:', error);
+        throw error;
+    }
+};
+
+const deleteProduct = async(productId: string)=>{
+    try{
+
+        const deleteProduct = await Product.findByIdAndDelete(productId)
+        return deleteProduct
+
+    }catch(error){
+        console.error(error);
+    }
+
+
+}
+
+
+const 
+
+
 export const productServices = {
     createProduct,
     getProduct,
-    getSingleProduct
+    getSingleProduct,
+    updateProduct,
+    deleteProduct
 }
