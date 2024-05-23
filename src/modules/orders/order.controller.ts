@@ -35,7 +35,6 @@ const getOrderByEmailController = async(req: Request, res: Response)=>{
 
     const email = req.query.email
 
-    console.log(email);
     const order = await orderServices.getOrderByEmail(email as string)
 
     res.json(

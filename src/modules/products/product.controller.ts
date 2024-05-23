@@ -28,7 +28,7 @@ const getSingleProductController = async(req: Request, res:Response )=>{
 
     try {
         const { productId } = req.params as { productId: string };
-        console.log(productId);
+        // console.log(productId);
         
         const result = await productServices.getSingleProduct(productId);
 

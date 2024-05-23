@@ -21,7 +21,7 @@ const  getSingleProduct = async(productId: string)=>{
 
 }
 
-const updateProduct = async (productId: string, productData: any) => {
+const updateProduct = async (productId: string, productData: object) => {
     try {
         // Ensure the ID is valid if using a database like MongoDB
         const updatedProduct = await Product.findByIdAndUpdate(
