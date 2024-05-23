@@ -51,11 +51,31 @@ const deleteProduct = async(productId: string)=>{
 }
 
 
+const productSearch = async (searchTerm: string) => {
+    try {
+        const regex = new RegExp(searchTerm, 'i'); // Case-insensitive search
+        const products = await Product.find({
+            $or: [
+                { name: { $regex: regex } },
+                { description: { $regex: regex } },
+                { category: { $regex: regex } },
+                { tags: { $regex: regex } },
+            ],
+        });
+        return products;
+    } catch (error) {
+        console.error('Error in productSearch:', error);
+        throw error;
+    }
+};
+
+
 
 export const productServices = {
     createProduct,
     getProduct,
     getSingleProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    productSearch,
 }

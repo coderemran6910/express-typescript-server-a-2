@@ -72,7 +72,7 @@ const getSingleProductController = async(req: Request, res:Response )=>{
     try {
       const productId = req.params.productId;
   
-      const deletedProduct = await productServices.deleteProduct(productId);
+       await productServices.deleteProduct(productId);
   
       res.status(200).json({
         success: true,
@@ -85,7 +85,28 @@ const getSingleProductController = async(req: Request, res:Response )=>{
     }
   }
 
+  const productSearchController = async (req: Request, res: Response) => {
+    try {
+        const searchTerm = req.query.searchTerm as string;
 
+        console.log('Search term:', searchTerm); // Log for debugging
+
+        const result = await productServices.productSearch(searchTerm);
+
+        res.status(200).json({
+            success: true,
+            message: `Products matching search term '${searchTerm}' fetched successfully!`,
+            data: result,
+        });
+    } catch (error) {
+        console.error('Error searching products:', error); // Log error for debugging
+        res.status(500).json({
+            success: false,
+            message: 'An error occurred while searching for products.',
+            error: error,
+        });
+    }
+};
 
 
  export const productController = {
@@ -93,5 +114,6 @@ const getSingleProductController = async(req: Request, res:Response )=>{
     getProductController,
     getSingleProductController,
     updateProductInfo,
-    deleteProduct
+    deleteProduct,
+    productSearchController
  }
