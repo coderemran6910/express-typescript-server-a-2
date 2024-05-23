@@ -2,6 +2,9 @@
 
 This is a simple Product and  Order Management API built with Node.js, Express, and Mongoose. The API allows you to create, fetch,delete, update and manage orders.
 
+
+### project Live Link : https://express-backend-a2.vercel.app/
+
 ## Features
 
 - create a new Product
@@ -31,7 +34,21 @@ Follow these instructions to set up and run the application locally.
    ```sh
    git clone https://github.com/coderemran6910/express-typescript-server-a-2.git
    cd Assignment-2
+   npm install 
+
+2. **Configuration**
+    #### Create a .env file in the root directory and add your MongoDB connection string:
+    ```sh
+    MONGO_URI=mongodb://localhost:27017/order-management
+    PORT=5000 
+3. **Running the Application**
+Start the server:
+
+    ```sh
+    npm run start
 
 
 
-   
+
+
+
