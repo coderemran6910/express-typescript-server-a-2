@@ -5,12 +5,10 @@ const orderSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
     },
     productId: {
         type: String,
         required: true,
-        unique: true
     },
     price: {
         type: Number,

@@ -17,9 +17,41 @@ const createOrderController = async(req: Request, res: Response)=>{
     )
 }
 
+const getOrderController = async(req: Request, res: Response)=>{
+
+    const order = await orderServices.getOrder()
+
+    res.json(
+        {
+            "success": true,
+            "message": "Orders fetched successfully!",
+            "data": order
+        }
+    )
+}
+
+
+const getOrderByEmailController = async(req: Request, res: Response)=>{
+
+    const email = req.query.email
+
+    console.log(email);
+    const order = await orderServices.getOrderByEmail(email as string)
+
+    res.json(
+        {
+            "success": true,
+            "message": "Orders fetched successfully for user email!",
+            "data": order
+        }
+    )
+}
+
 
 
 export const orderController = {
     createOrderController, 
+    getOrderController,
+    getOrderByEmailController,
 
 }

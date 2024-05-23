@@ -89,8 +89,6 @@ const getSingleProductController = async(req: Request, res:Response )=>{
     try {
         const searchTerm = req.query.searchTerm as string;
 
-        console.log('Search term:', searchTerm); // Log for debugging
-
         const result = await productServices.productSearch(searchTerm);
 
         res.status(200).json({
